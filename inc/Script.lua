@@ -5442,7 +5442,7 @@ end
 elseif Text== "تف" then return sendMsg(msg.chat_id_,msg.id_,"لو لا الحاضرين تفلت بخشمّك ")
 elseif Text== "مطور السورس" then return sendMsg(msg.chat_id_,msg.id_,"[‹ شـادي](t.me/KKFKK")
 elseif Text== "مالك السورس" then return sendMsg(msg.chat_id_,msg.id_,"[‹ شـادي](t.me/KKFKK")
-elseif Text== "سيدالرجال" then return sendMsg(msg.chat_id_,msg.id_,"[‹ سـيدالرجـال](t.me/BYYYY")
+elseif Text== "باسل" then return sendMsg(msg.chat_id_,msg.id_,"[‹ سـيدالرجـال](t.me/BYYYY")
 elseif Text== "مطور السورس" then return sendMsg(msg.chat_id_,msg.id_,"[‹ شـادي](t.me/KKFKK")
 elseif Text== "مساعد شادي" then return sendMsg(msg.chat_id_,msg.id_,"[عـمر](t.me/BYYYY")
 elseif Text== "سيد الرجال" then return sendMsg(msg.chat_id_,msg.id_,"[‹ سـيدالرجـال](t.me/BYYYY")
