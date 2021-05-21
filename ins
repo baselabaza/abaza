@@ -1,12 +1,13 @@
 #!/bin/bash 
 
-#─▄███▄──▄███▄─
-#▐████████████▌
-#─████████████─
-#──▀████████▀──
-#─────▀██▀─────
-#┊Pearlin ‿ @TH3NK
-#┊@SA3ED ‿ @TH3SS
+#    ▀█████████▄   ▄██████▄     ▄████████    ▄████████
+#      ███    ███ ███    ███   ███    ███   ███    ███
+#      ███    ███ ███    ███   ███    █▀    ███    █▀
+#     ▄███▄▄▄██▀  ███    ███   ███          ███
+#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @MES
+#      ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+#      ███    ███ ███    ███    ▄█    ███    ▄█    ███
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source MES BY @TH3BS
 
 #---------------------------------------------------------------------
 cd $(cd $(dirname $0); pwd)
@@ -22,32 +23,15 @@ CNIL='\033[0m'
 
 Version=`lsb_release -rs | cut -f1 -d"."`
 
-if [ "$Version" == "18" ];then
 echo -e "${SMAY}\n"
-echo -e "─▄███▄──▄███▄─"
-echo -e "▐████████████▌"
-echo -e "─████████████─"
-echo -e "──▀████████▀──"
-echo -e "─────▀██▀─────"
-echo -e "┊Pearlin ‿ @TH3NK"
-echo -e "┊@SA3ED ‿ @TH3SS"
-echo -e " ---------------------------------------------------------------------"
-echo -e "${CNIL}"
-echo -e "${RED}| للاسف لايمكنك تنصيب السورس ع نظام اوبنتو {${Version}} يجب ان يكون على اصدار  اقل مثلا  ${SMAY}14 او 16
-${CNIL}";
-echo -e "${RED}| Sorry Canot install Source on Ubuntu {${Version}} Please install system To Ubuntu ${SMAY}14 or 16 ${RED} For Run The Source Pearlin
-${CNIL}";
-exit;
-fi
-
-echo -e "${SMAY}\n"
-echo -e "─▄███▄──▄███▄─"
-echo -e "▐████████████▌"
-echo -e "─████████████─"
-echo -e "──▀████████▀──"
-echo -e "─────▀██▀─────"
-echo -e "┊Pearlin ‿ @TH3NK"
-echo -e "┊@SA3ED ‿ @TH3SS"
+echo -e " ▀█████████▄   ▄██████▄     ▄████████    ▄████████"
+echo -e "   ███    ███ ███    ███   ███    ███   ███    ███"
+echo -e "   ███    ███ ███    ███   ███    █▀    ███    █▀"
+echo -e "  ▄███▄▄▄██▀  ███    ███   ███          ███"
+echo -e " ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @MES"
+echo -e "   ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM"
+echo -e "   ███    ███ ███    ███    ▄█    ███    ▄█    ███"
+echo -e " ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source MES BY @TH3BS"
 echo -e " ---------------------------------------------------------------------"
 echo -e "${CNIL}"
 
@@ -56,7 +40,7 @@ memory_free=`awk '/^Mem/ {print $4}' <(free -m)`
 if [ "$memory_free" -le 60 ]; then
 echo -e "${RED}¦
 ¦ CAUTION:${WHITEC} Your RAM size is less than 60MB.
-¦ NOW you can not install the SOURCE Pearlin. \n
+¦ NOW you can not install the SOURCE MES. \n
 ¦${WHITB}¦ YOUR RAM FREE SIZE IS : ${SMAY}${memory_free}MB${CNIL}"
 exit ;
 fi
@@ -67,11 +51,11 @@ if [ "${PKG_OK}" == "installed" ]; then
 if [ "$1" == "-R" ] ; then
 GET_INSTALL="NO"
 else
-GET_INSTALL=$(redis-cli get Pearlin_INSTALL)
+GET_INSTALL=$(redis-cli get MES_INSTALL)
 fi
 if [ "${GET_INSTALL}" == "Yes" ]; then
 echo -e "
-${SMAY}>> ${LSAMAY}Source Pearlin${SMAY} is Already Installed ^_^ .\n${CNIL}"
+${SMAY}>> ${LSAMAY}Source MES${SMAY} is Already Installed ^_^ .\n${CNIL}"
 sudo chmod +x ./run
 sudo chmod +x ./TG
 sudo ./run
@@ -86,12 +70,17 @@ echo -e "\x1B[01;90m\n¦ software-properties-common installing ... \n\x1B[0m"
 sudo apt-get install software-properties-common -y
 echo -e "\x1B[01;90m\n¦ ubuntu-toolchain installing ...\n \x1B[0m"
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-# BY _ [ S A I E D >> @SA3ED | ALI MOHAMED >> @TH3SS ]
+# BY _ [ >> @OMMMM | MOHAMED HISHAM >> @MES ]
 echo -e "\x1B[01;90m\n¦ install Modiles Pkgs ... \n\n\x1B[0m"
 
 sudo apt-get install libreadline-dev -y libconfig-dev -y libssl-dev -y lua5.2 -y liblua5.2-dev -y lua-socket -y lua-sec -y lua-expat -y libevent-dev -y make unzip git redis-server autoconf g++ -y libjansson-dev -y libpython-dev -y expat libexpat1-dev -y curl -y htop -y wget -y
 
-
+if [ "$Version" == "18" ];then
+echo -e "${WHITB}\n¦ Installing depedencies for ubuntu 18  ... \n${CNIL}"
+cd /lib/x86_64-linux-gnu/ && sudo ln -s libreadline.so.7.0 libreadline.so.6
+wget "th3boss.com/installubuntu18/compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb" && sudo dpkg -i compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb
+rm compat-libevent2-5_2.0.21-1ubuntu18_amd64.deb
+fi
 
 echo -e "\x1B[01;90m\n¦ screen installing ... \n\x1B[0m"
 sudo apt-get install screen -y
@@ -125,14 +114,12 @@ echo -e "\x1B[01;90m\n¦ Remove luarocks ... \n\x1B[0m"
 cd .. ;sudo rm -fr ./luarocks*
 echo -e "${WHITB}\n¦ Convert TimeZone To Asia/Baghdad  ... \n${CNIL}"
 sudo timedatectl set-timezone Asia/Baghdad
-sudo chmod +x TG
-sudo chmod +x run
-sudo chmod +x ./run
+cd && cd MES && sudo find . -type f -print0 | xargs -0 chmod +x
 echo -e "\n
-${SMAY}>> Installation ${LSAMAY}Source Pearlin${SMAY} Completed ^_^ .\n
+${SMAY}>> Installation ${LSAMAY}Source MES ${SMAY} Completed ^_^ .\n
 Now I Have Information For Your Bot  \n
 1- Enter Token Your Bot .
-2- Enter Your Id Sudo .
-3- And End Press Enter To Run Source Pearlin .\n\n
+2- Enter Your UserName Sudo .
+3- And End Press Enter To Run Source MES .\n\n
 ${RED}Note:${Yellow} Send \"/start\"${SMAY} To Your Bot For Show All Commands.${CNIL}"
 sudo ./run
