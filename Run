@@ -1,0 +1,5 @@
+cd $(cd $(dirname $0); pwd)
+while(true) do
+screen -S Abazzabot -X kill
+screen -S Abazzabot ./abaza
+done
