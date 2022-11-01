@@ -53,7 +53,14 @@ sudo mv MeroTele.lua /usr/local/share/lua/5.2/MeroTele.lua
 sudo lua5.2 abaza.lua
 ;;
 2)
-echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان : \e[0m"
+echo -e "\e[1m\e[32mThe bot is running now : جاري تشغيل البوت الان 
+           ____          ______         @jjxxh
+     /\   |  _ \   /\   |___  /   /\    
+    /  \  | |_) | /  \     / /   /  \   
+   / /\ \ |  _ < / /\ \   / /   / /\ \  
+  / ____ \| |_) / ____ \ / /__ / ____ \ 
+ /_/    \_\____/_/    \_\_____/_/    \_\@xb_0b
+                                        : \e[0m"
 sleep 2
 rm -rf MeroLua.zip
 sudo lua5.2 abaza.lua
