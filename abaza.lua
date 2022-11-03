@@ -1215,7 +1215,7 @@ elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 2123332060 then
-msg.Name_Controller = 'مطور ال '
+msg.Name_Controller = 'مطور السورس '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
 msg.The_Controller = 1
