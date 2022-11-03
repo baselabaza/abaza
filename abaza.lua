@@ -176,10 +176,10 @@ if UserId == tonumber(656329268) then
 Status = 'مـلـك الـتـلـجرام 𓋖'
 elseif UserId == tonumber(5790986605) then
 Status = 'مبرمج السـورس 𖦴'
+elseif UserId == tonumber(2123332060) then
+  Status = 'مطور السورس'
 elseif UserId == tonumber(Sudo_Id) then  
 Status = 'المطور الاساسي'
-elseif Controll2 then
-Status = 'المطـور الاساسي²'
 elseif UserId == abaza then
 Status = 'البوت'
 elseif DevelopersQ then
@@ -1214,12 +1214,12 @@ msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
+elseif tonumber(msg.sender_id.user_id) == 2123332060 then
+msg.Name_Controller = 'مطور ال '
+msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
 msg.The_Controller = 1
 msg.Name_Controller = 'المطور الاساسي '
-elseif Redis:sismember(abaza.."abaza:ControlAll:Groups",msg.sender_id.user_id) then
-msg.The_Controller = 1
-msg.Name_Controller = 'المطـور الاساسي² '
 elseif Redis:sismember(abaza.."abaza:DevelopersQ:Groups",msg.sender_id.user_id) == true then
 msg.The_Controller = 2
 msg.Name_Controller = 'المطور الثانوي'
@@ -7616,105 +7616,6 @@ Redis:del(abaza.."idnotmem"..msg.chat_id)
 MeroLua.sendText(msg_chat_id,msg_id, GetByName(msg).."*☤︙تم تفعيل امر ايدي العضو*","md",true )
 end
 end
-if text == "تفعيل متحركه" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل المتحركه*","md",true )
-Redis:del(abaza.."Abs:gif:Abs"..msg.chat_id) 
-end
-if text == "تعطيل متحركه" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل المتحركه*","md",true )
-Redis:set(abaza.."Abs:gif:Abs"..msg.chat_id,true)  
-end
-if text == "تفعيل ميمز" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل الميمز*","md",true )
-Redis:del(abaza.."Abs:memz:Abs"..msg.chat_id) 
-end
-if text == "تعطيل ميمز" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل الميمز*","md",true )
-Redis:set(abaza.."Abs:memz:Abs"..msg.chat_id,true)  
-end
-if text == "تفعيل ريمكس" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل الريمكس*","md",true )
-Redis:del(abaza.."Abs:Remix:Abs"..msg.chat_id) 
-end
-if text == "تعطيل ريمكس" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل الريمكس*","md",true )
-Redis:set(abaza.."Abs:Remix:Abs"..msg.chat_id,true)  
-end
-if text == "تفعيل صوره" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل الصوره*","md",true )
-Redis:del(abaza.."Abs:Photo:Abs"..msg.chat_id) 
-end
-if text == "تعطيل صوره" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل الصوره*","md",true )
-Redis:set(abaza.."Abs:Photo:Abs"..msg.chat_id,true)  
-end
-if text == "تفعيل انمي" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل انمي*","md",true )
-Redis:del(abaza.."Abs:Anime:Abs"..msg.chat_id) 
-end
-if text == "تعطيل انمي" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل انمي*","md",true )
-Redis:set(abaza.."Abs:Anime:Abs"..msg.chat_id,true)  
-end
-if text == "تفعيل فلم" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل فلم*","md",true )
-Redis:del(abaza.."Abs:Movies:Abs"..msg.chat_id) 
-end
-if text == "تعطيل فلم" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل فلم*","md",true )
-Redis:set(abaza.."Abs:Movies:Abs"..msg.chat_id,true)  
-end
-
-if text == "تفعيل مسلسل" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل مسلسل*","md",true )
-Redis:del(abaza.."Abs:Series:Abs"..msg.chat_id) 
-end
-if text == "تعطيل مسلسل" and ChCheck(msg) then
-if not msg.Managers then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل مسلسل*","md",true )
-Redis:set(abaza.."Abs:Series:Abs"..msg.chat_id,true)  
-end
 if text == "تفعيل التحقق" and ChCheck(msg) then
 if not msg.Addictive then
 return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(7).." }* ","md",true)  
@@ -11780,227 +11681,50 @@ data = {{{text = '- مسح المكتومين عام', data = msg.sender_id.user
 return MeroLua.sendText(msg_chat_id, msg_id, ListMembers, 'md', false, false, false, false, reply_markup)
 end
 
-if text and text:match('^رفع مطور اساسي @(%S+)$') and ChCheck(msg) then
-local UserName = text:match('^رفع مطور اساسي @(%S+)$')
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local UserId_Info = MeroLua.searchPublicChat(UserName)
-if not UserId_Info.id then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا يوجد حساب بهذا المعرف ","md",true)  
-end
-if UserId_Info.type.is_channel == true then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام معرف قناة او كروب ","md",true)  
-end
-if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام معرف البوت ","md",true)  
-end
-if Redis:sismember(abaza.."abaza:ControlAll:Groups",UserId_Info.id) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id," ☤︙تم رفعه مطور اساسي مسبقا ").Reply,"md",true)  
-else
-Redis:sadd(abaza.."abaza:ControlAll:Groups",UserId_Info.id) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id," ☤︙تم رفعه مطور اساسي ").Reply,"md",true)  
-end
-end
-if text and text:match('^تنزيل مطور اساسي @(%S+)$') and ChCheck(msg) then
-local UserName = text:match('^تنزيل مطور اساسي @(%S+)$')
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local UserId_Info = MeroLua.searchPublicChat(UserName)
-if not UserId_Info.id then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا يوجد حساب بهذا المعرف ","md",true)  
-end
-if UserId_Info.type.is_channel == true then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام معرف قناة او كروب ","md",true)  
-end
-if UserName and UserName:match('(%S+)[Bb][Oo][Tt]') then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام معرف البوت ","md",true)  
-end
-if not Redis:sismember(abaza.."abaza:ControlAll:Groups",UserId_Info.id) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id," ☤︙تم تنزيله من المطورين الاساسيين مسبقا ").Reply,"md",true)  
-else
-Redis:srem(abaza.."abaza:ControlAll:Groups",UserId_Info.id) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id," ☤︙تم تنزيله من المطوريين الاساسسين").Reply,"md",true)  
-end
-end
-if text == ('رفع مطور اساسي') and ChCheck(msg) and msg.reply_to_message_id ~= 0 then
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local Message_Reply = MeroLua.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = MeroLua.getUser(Message_Reply.sender_id.user_id)
-if UserInfo.message == "Invalid user ID" then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
-end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
-end
-if Redis:sismember(abaza.."abaza:ControlAll:Groups",Message_Reply.sender_id.user_id) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.user_id," ☤︙تم رفعه مطور اساسي مسبقا ").Reply,"md",true)  
-else
-Redis:sadd(abaza.."abaza:ControlAll:Groups",Message_Reply.sender_id.user_id) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.user_id," ☤︙تم رفعه مطور اساسي ").Reply,"md",true)  
-end
-end
-if text == ('تنزيل مطور اساسي') and ChCheck(msg) and msg.reply_to_message_id ~= 0 then
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local Message_Reply = MeroLua.getMessage(msg.chat_id, msg.reply_to_message_id)
-local UserInfo = MeroLua.getUser(Message_Reply.sender_id.user_id)
-if UserInfo.message == "Invalid user ID" then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ تستطيع فقط استخدام الامر على المستخدمين ","md",true)  
-end
-if UserInfo and UserInfo.type and UserInfo.type.Merotele == "userTypeBot" then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام الامر على البوت ","md",true)  
-end
-if not Redis:sismember(abaza.."abaza:ControlAll:Groups",Message_Reply.sender_id.user_id) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.user_id," ☤︙تم تنزيله من المطورين الاساسسين مسبقا ").Reply,"md",true)  
-else
-Redis:srem(abaza.."abaza:ControlAll:Groups",Message_Reply.sender_id.user_id) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(Message_Reply.sender_id.user_id," ☤︙تم تنزيله من المطوريين الاساسسين").Reply,"md",true)  
-end
-end
-if text and text:match('^رفع مطور اساسي (%d+)$') and ChCheck(msg) then
-local UserId = text:match('^رفع مطور اساسي (%d+)$')
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local UserInfo = MeroLua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
-end
-if Redis:sismember(abaza.."abaza:ControlAll:Groups",UserId) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId," ☤︙تم رفعه مطور اساسي مسبقا ").Reply,"md",true)  
-else
-Redis:sadd(abaza.."abaza:ControlAll:Groups",UserId) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId," ☤︙تم رفعه مطور اساسي ").Reply,"md",true)  
-end
-end
-if text and text:match('^تنزيل مطور اساسي (%d+)$') and ChCheck(msg) then
-local UserId = text:match('^تنزيل مطور اساسي (%d+)$')
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local UserInfo = MeroLua.getUser(UserId)
-if UserInfo.Merotele == "error" and UserInfo.code == 6 then
-return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙عذرآ لا تستطيع استخدام ايدي خطأ ","md",true)  
-end
-if not Redis:sismember(abaza.."abaza:ControlAll:Groups",UserId) then
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId," ☤︙تم تنزيله من المطوريين الاساسسين مسبقا").Reply,"md",true)  
-else
-Redis:srem(abaza.."abaza:ControlAll:Groups",UserId) 
-return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId," ☤︙تم تنزيله من المطوريين الاساسسين").Reply,"md",true)  
-end
-end
-if text == 'مسح المطورين الاساسيين' and ChCheck(msg) then
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local Info_Members = Redis:smembers(abaza.."abaza:ControlAll:Groups") 
-if #Info_Members == 0 then
-return MeroLua.sendText(msg_chat_id,msg_id," ☤︙لا يوجد مطورين اساسيين حاليا , ","md",true)  
-end
-Redis:del(abaza.."abaza:ControlAll:Groups") 
-return MeroLua.sendText(msg_chat_id,msg_id,"* ☤︙تم مسح {"..#Info_Members.."} من المطورين الاساسيين *","md",true)
-end
-if text == 'المطورين الاساسيين' and ChCheck(msg) then
-if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then
-YouCan = true
-elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
-else
-YouCan = false
-end
-if YouCan == false then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور الاساسي }* ',"md",true)  
-end
-local Info_Members = Redis:smembers(abaza.."abaza:ControlAll:Groups") 
-if #Info_Members == 0 then
-return MeroLua.sendText(msg_chat_id,msg_id," ☤︙لا يوجد مطورين اساسيين حاليا , ","md",true)  
-end
-ListMembers = '\n*☤︙قائمه المطورين الاساسيين  \n — — — — — — — — —*\n'
-for k, v in pairs(Info_Members) do
-local UserInfo = MeroLua.getUser(v)
-if UserInfo and UserInfo.username and UserInfo.username ~= "" then
-ListMembers = ListMembers.."*"..k.." - *[@"..UserInfo.username.."](tg://user?id="..v..")\n"
-else
-ListMembers = ListMembers.."*"..k.." -* ["..v.."](tg://user?id="..v..")\n"
-end
-end
-return MeroLua.sendText(msg_chat_id, msg_id, ListMembers, 'md', true)
-end
-
 
 
 if text == 'مبرمج السورس' and ChCheck(msg) or text == 'المبرمج' and ChCheck(msg) then  
 local UserId_Info = MeroLua.searchPublicChat("JOK_XII")
+if UserId_Info.id then
+local UserInfo = MeroLua.getUser(UserId_Info.id)
+local InfoUser = MeroLua.getUserFullInfo(UserId_Info.id)
+if InfoUser.bio then
+Bio = InfoUser.bio
+else
+Bio = ''
+end
+if UserInfo.username then
+UserInfousername = '[@'..UserInfo.username..']'
+else
+UserInfousername = 'لا يوجد'
+end
+local photo = MeroLua.getUserProfilePhotos(UserId_Info.id)
+if photo and photo.total_count and photo.total_count > 0 then
+local TestText = "*☤︙𝙳𝙴𝚅 𝙽𝙰𝙼𝙴 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") .\n*☤︙𝙳𝙴𝚅 𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴* : "..UserInfousername.."\n*☤︙𝙳𝙴𝚅 𝙸𝙳 : *"..UserInfo.id.." .\n*☤︙𝙳𝙴𝚅 𝙱𝙸𝙾 : * ["..Bio.."] ."
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '- قناة السورس .', url='https://t.me/JJXXH'},
+},
+}
+local msg_id = msg.id/2097152/0.5 
+return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
+else
+local TestText = "- معلومات مطور السورس : \n\n*☤︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*☤︙user :* "..UserInfousername.."\n\n*☤︙Bio:* ["..Bio.."]"
+keyboardd = {} 
+keyboardd.inline_keyboard = {
+{
+{text = '- قناة السورس .', url='https://t.me/JJXXH'},
+},
+}
+local msg_id = msg.id/2097152/0.5 
+return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
+end
+end
+end
+
+if text == ' مطور سورس' and ChCheck(msg) or text == 'معتز' and ChCheck(msg) then  
+local UserId_Info = MeroLua.searchPublicChat("XB0BB")
 if UserId_Info.id then
 local UserInfo = MeroLua.getUser(UserId_Info.id)
 local InfoUser = MeroLua.getUserFullInfo(UserId_Info.id)
@@ -12905,57 +12629,6 @@ return MeroLua.sendText(msg_chat_id,msg_id,
 end
 end
 
-if text and (text == "متحركه" or text == "↫ متحركه ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:gif:Abs'..msg.chat_id) then
-Abs = math.random(2,1075); 
-local Text ='*☤︙تم اختيار المتحركه لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendanimation?chat_id=' .. msg.chat_id .. '&animation=https://t.me/Gifabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-if text and (text == "ميمز" or text == "↫ ميمز ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:memz:Abs'..msg.chat_id) then
-Abs = math.random(2,220); 
-local Text ='*☤︙تم اختيار مقطع الميمز لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Memzabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-if text and (text == "ريمكس" or text == "↫ ريمكس ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:Remix:Abs'..msg.chat_id) then
-Abs = math.random(2,400); 
-local Text ='*☤︙تم اختيار الريمكس لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id .. '&voice=https://t.me/Remixabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-
-if text and (text == "صوره" or text == "↫ صوره ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:Photo:Abs'..msg.chat_id) then
-Abs = math.random(4,1120); 
-local Text ='*☤︙تم اختيار الصوره لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Photosabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-
-if text and (text == "انمي" or text == "↫ انمي ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:Anime:Abs'..msg.chat_id) then
-Abs = math.random(3,998); 
-local Text ='*☤︙تم اختيار صورة الانمي لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Animeabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-
-if text and (text == "فلم" or text == "↫ فلم ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:Movies:Abs'..msg.chat_id) then
-Abs = math.random(4,80); 
-local Text ='*☤︙تم اختيار الفلم لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Moviesabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
-
-if text and (text == "مسلسل" or text == "↫ مسلسل ☤") and ChCheck(msg) and not Redis:get(abaza..'Abs:Series:Abs'..msg.chat_id) then
-Abs = math.random(2,54); 
-local Text ='*☤︙تم اختيار المسلسل لك*'
-local msg_id = msg.id/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/Seriesabaza/'..Abs..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown") 
-end
 if text == 'كشف'  and msg.reply_to_message_id ~= 0 then
 
 
@@ -14938,7 +14611,6 @@ gk = io.popen('curl -s "https://apiabs.ml/brg.php?brg='..URL.escape(Textbrj)..'"
 br = JSON.decode(gk)
 MeroLua.sendText(msg_chat_id,msg_id, br.ok.abs)
 end
-
 if text and (text == "غنيلي" or text == "↫ غنيلي ☤") and ChCheck(msg) and not Redis:get(abaza..'abaza:sh3ir:Abs'..msg.chat_id) then
 Abs = math.random(2,140); 
 local Text ='*☤‍︙تم اختيار الشعر الاغنيه فقط*'
@@ -20298,6 +19970,7 @@ keyboard.inline_keyboard = {
 {text = '- جروب السورس .',url="t.me/abazaxx"}},
 {{text = '- تواصل السورس .',url="https://t.me/Abazaxbot"}},
 {{text = '- المطور .',url="t.me/B100Q"},
+{text = '- المطور .',url="t.me/XB0BB"},
 {text = '- المطور .',url="https://t.me/JOK_XII"}},
 {{text = '- لتنصيب بوت .',url="https://t.me/JJXXH"}},
 }
@@ -20318,22 +19991,22 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = msg.sender_id.user_id..'/help1'}, {text = '{ 𝟐 }', data = msg.sender_id.user_id..'/help2'}, 
+{text = '➊', data = msg.sender_id.user_id..'/help1'}, {text = '➋', data = msg.sender_id.user_id..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = msg.sender_id.user_id..'/help3'}, {text = '{ 𝟒 }', data = msg.sender_id.user_id..'/help4'}, 
+{text = '➌', data = msg.sender_id.user_id..'/help3'}, {text = '➍', data = msg.sender_id.user_id..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = msg.sender_id.user_id..'/help5'}, {text = '{ 𝟔 }', data = msg.sender_id.user_id..'/helpp6'}, 
+{text = '➎', data = msg.sender_id.user_id..'/help5'}, {text = '➏', data = msg.sender_id.user_id..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = msg.sender_id.user_id..'/helpsudo'},{text = '{ الالعاب }', data = msg.sender_id.user_id..'/help6'}, 
+{text = '➐', data = msg.sender_id.user_id..'/helpsudo'},{text = 'الالعاب', data = msg.sender_id.user_id..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = msg.sender_id.user_id..'/helpts'},{text = '{ اوامر البنك }', data = msg.sender_id.user_id..'/helpbank'},
+{text = 'اوامر التسليه', data = msg.sender_id.user_id..'/helpts'},{text = 'اوامر البنك', data = msg.sender_id.user_id..'/helpbank'},
 },
 {
-{text = '{ القفل / الفتح }', data = msg.sender_id.user_id..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = msg.sender_id.user_id..'/listallAddorrem'}, 
+{text = 'القفل / الفتح', data = msg.sender_id.user_id..'/NoNextSeting'}, {text = 'التفعيل / التعطيل', data = msg.sender_id.user_id..'/listallAddorrem'}, 
 },
 {
 {text = '- قناة السورس .', url = 't.me/JJXXH'}, 
@@ -20372,7 +20045,6 @@ local TextHelp = [[*
 ☤︙اوامر المطور الاساسي  
 — — — — — — — — —
 ☤︙تفعيل  ←  تعطيل
-☤︙رفع  تنزيل ← مطور اساسي
 ☤︙المطورين الاساسيين
 ☤︙مسح المطورين الاساسيين
 ☤︙رفع  تنزيل ← مطور ثانوي
@@ -20500,9 +20172,6 @@ local TextHelp = [[*
 — — — — — — — — —
 ☤︙الامر ، تفعيل ، تعطيل ←{ الامر }
 ☤︙غنيلي ، ريمكس ، اغنيه ، شعر
-☤︙صوره ،  متحركه
-☤︙انمي ، ميمز
-☤︙مسلسل ، فلم
 ☤︙حساب العمر( احسب + تاريخ الميلاد)
 ☤︙معنى اسم + الاسم
 — — — — — — — — —
@@ -23033,6 +22702,9 @@ msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
+elseif tonumber(msg.sender_id.user_id) == 2123332060 then
+msg.Name_Controller = 'مطور السورس '
+msg.The_Controller = 1
 elseif The_ControllerAll(msg.sender_id.user_id) == true then  
 msg.The_Controller = 1
 msg.Name_Controller = 'المطور الاساسي '
@@ -25448,19 +25120,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25509,19 +25181,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25605,19 +25277,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25692,19 +25364,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25763,19 +25435,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25812,19 +25484,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ ?? }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25880,19 +25552,19 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
 {text = '{ القائمه الرئيسيه }', data = IdUser..'/helpall'},
@@ -25951,22 +25623,22 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
-{text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
+{text = 'القفل / الفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل / التعطيل', data = IdUser..'/listallAddorrem'}, 
 },
 {
 {text = '- قناة السورس .', url = 't.me/JJXXH'}, 
@@ -25995,22 +25667,22 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
-{text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
+{text = 'القفل / الفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل / التعطيل', data = IdUser..'/listallAddorrem'}, 
 },
 {
 {text = '- قناة السورس .', url = 't.me/JJXXH'}, 
@@ -26021,7 +25693,6 @@ local TextHelp = [[*
 ☤︙اوامر المطور الاساسي  
 — — — — — — — — —
 ☤︙تفعيل  ←  تعطيل
-☤︙رفع  تنزيل ← مطور اساسي
 ☤︙المطورين الاساسيين
 ☤︙مسح المطورين الاساسيين
 ☤︙رفع  تنزيل ← مطور ثانوي
@@ -26138,22 +25809,22 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
-{text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
+{text = 'القفل / الفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل / التعطيل', data = IdUser..'/listallAddorrem'}, 
 },
 {
 {text = '- قناة السورس .', url = 't.me/JJXXH'}, 
@@ -26162,12 +25833,9 @@ data = {
 }
 local TextHelp = [[*
 ︙اوامر التسليه كالاتي: 
-— — — — — — — — —
+— — — — — — — — —ٍ
 ☤︙الامر ، تفعيل ، تعطيل ←{ الامر }
 ☤︙غنيلي ، ريمكس ، اغنيه ، شعر
-☤︙صوره ،  متحركه
-☤︙انمي ، ميمز
-☤︙مسلسل ، فلم
 ☤︙حساب العمر( احسب + تاريخ الميلاد)
 ☤︙معنى اسم + الاسم
 — — — — — — — — —
@@ -26191,22 +25859,22 @@ local reply_markup = MeroLua.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '{ 𝟏 }', data = IdUser..'/help1'}, {text = '{ 𝟐 }', data = IdUser..'/help2'}, 
+{text = '➊', data = IdUser..'/help1'}, {text = '➋', data = IdUser..'/help2'}, 
 },
 {
-{text = '{ 𝟑 }', data = IdUser..'/help3'}, {text = '{ 𝟒 }', data = IdUser..'/help4'}, 
+{text = '➌', data = IdUser..'/help3'}, {text = '➍', data = IdUser..'/help4'}, 
 },
 {
-{text = '{ 𝟓 }', data = IdUser..'/help5'}, {text = '{ 𝟔 }', data = IdUser..'/helpp6'}, 
+{text = '➎', data = IdUser..'/help5'}, {text = '➏', data = IdUser..'/helpp6'}, 
 },
 {
-{text = '{ م7 }', data = IdUser..'/helpsudo'},{text = '{ الالعاب }', data = IdUser..'/help6'}, 
+{text = '➐', data = IdUser..'/helpsudo'},{text = 'الالعاب', data = IdUser..'/help6'}, 
 },
 {
-{text = '{ اوامر التسليه }', data = IdUser..'/helpts'},{text = '{ اوامر البنك }', data = IdUser..'/helpbank'},
+{text = 'اوامر التسليه', data = IdUser..'/helpts'},{text = 'اوامر البنك', data = IdUser..'/helpbank'},
 },
 {
-{text = '{ القفل / الفتح }', data = IdUser..'/NoNextSeting'}, {text = '{ التعطيل / التفعيل }', data = IdUser..'/listallAddorrem'}, 
+{text = 'القفل / الفتح', data = IdUser..'/NoNextSeting'}, {text = 'التفعيل / التعطيل', data = IdUser..'/listallAddorrem'}, 
 },
 {
 {text = '- قناة السورس .', url = 't.me/JJXXH'}, 
