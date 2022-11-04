@@ -5408,7 +5408,7 @@ end
 --download('https://github.com/baselabaza/abaza/abaza.lua','abaza.lua')
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم تحديث السورس * ',"md",true)  
 end
-if text == 'السيرفر ☤' and ChCheck(msg) or text == 'السيرفر' and ChCheck(msg) then
+if text == 'السيرفر ☤'  and ChCheck(msg) then
 
 
 if not msg.ControllerBot then 
@@ -8016,7 +8016,7 @@ Redis:del(abaza.."mynames"..msg.chat_id)
 return MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تفعيل معنى الاسم*","md",true )
 end
 end
-if text == "تعطيل كول" and ChCheck(msg) then
+if text == "تعطيل قول" and ChCheck(msg) then
 if not msg.Managers then
 return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
 end
@@ -8027,7 +8027,7 @@ Redis:del(abaza.."kolklma"..msg.chat_id)
 return MeroLua.sendText(msg_chat_id,msg_id,GetByName(msg).."*☤︙تم تعطيل امر كول*","md",true )
 end
 end
-if text == "تفعيل كول" and ChCheck(msg) then
+if text == "تفعيل قول" and ChCheck(msg) then
 if not msg.Managers then
 return MeroLua.sendText(msg_chat_id,msg_id,"\n*☤︙هذا الامر يخص { "..Controller_Num(6).." }* ","md",true)  
 end
@@ -12040,7 +12040,7 @@ Textes = math.random(#texting)
 end
 end
 
-if text == 'السيرفر ☤' and ChCheck(msg) then
+if text == 'السيرفر' and ChCheck(msg) or text == 'السيرفر ☤' and ChCheck(msg) then
 
 
 if not msg.ControllerBot then 
@@ -16116,8 +16116,8 @@ MeroLua.sendText(msg_chat_id,msg_id, Mean.ok.abs)
 end
 end
 
-if text and text:match("^كول (.*)$") and ChCheck(msg) and Redis:get(abaza..'kolklma'..msg.chat_id) then
-local txt = {string.match(text, "^(كول) (.*)$")}
+if text and text:match("^قول (.*)$") and ChCheck(msg) and Redis:get(abaza..'kolklma'..msg.chat_id) then
+local txt = {string.match(text, "^(قول) (.*)$")}
 return MeroLua.sendText(msg_chat_id,msg_id, txt[2], 'md')
 end
 if text and text:match("^احسب (.*)$") or text and text:match("^عمري (.*)$") and ChCheck(msg) then 
