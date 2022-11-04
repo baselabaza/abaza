@@ -13468,7 +13468,6 @@ return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙ت
 else
 Redis:sadd(abaza.."abaza:DevelopersQ:Groups",UserId_Info.id) 
 Redis:srem(abaza.."abaza:SilentGroup:Group"..msg_chat_id,UserId_Info.id) 
-MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙تم الغاء كتمه من المجموعه ").Reply,"md",true)  
 return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙تم ترقيته مطور ثانوي").Reply,"md",true)  
 end
 end
@@ -24107,7 +24106,7 @@ elseif sender == 16 then
     F = '5400'
 Redis:incrby(abaza.."nool:flotysb"..msg.sender_id.user_id , F)
 local ballancee = Redis:get(abaza.."nool:flotysb"..msg.sender_id.user_id) or 0
-local teex = "اشعار ايداع "..neews.."\nالمبلغ : "..F.." دينار 💸\nوظيفتك : "..K.."\nنوع العملية : اضافة راتب\nرصيدك الحين : "..ballancee.." دينار 💸"
+local teex = "اشعار ايداع "..neews.."\nالمبلغ : "..F.." دينار 💸\nوظيفتك : "..K.."\nنوع العملية : اضافة راتب\nرصيدك الحين : "..ballancee.." دينار ??"
 MeroLua.sendText(msg.chat_id,msg.id,teex,"md",true)
 Redis:setex(abaza.."innoo" .. msg.sender_id.user_id,600, true)
 elseif sender == 17 then
