@@ -13467,6 +13467,8 @@ if Redis:sismember(abaza.."abaza:DevelopersQ:Groups",UserId_Info.id) then
 return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙تم ترقيته مطور ثانوي مسبقا ").Reply,"md",true)  
 else
 Redis:sadd(abaza.."abaza:DevelopersQ:Groups",UserId_Info.id) 
+Redis:srem(abaza.."abaza:SilentGroup:Group"..msg_chat_id,UserId_Info.id) 
+MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙تم الغاء كتمه من المجموعه ").Reply,"md",true)  
 return MeroLua.sendText(msg_chat_id,msg_id,Reply_Status(UserId_Info.id,"☤︙تم ترقيته مطور ثانوي").Reply,"md",true)  
 end
 end
