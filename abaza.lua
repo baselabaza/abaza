@@ -5231,7 +5231,7 @@ return MeroLua.sendText(msg_chat_id,msg_id,"\n☤︙هذا ليس معرف قن�
 end
 end
 end
-if text == 'رفع abaza' and tonumber(msg.reply_to_message_id) > 0  then
+if text == 'رفع الملف' and tonumber(msg.reply_to_message_id) > 0  then
 if not msg.ControllerBot then 
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -5244,7 +5244,7 @@ else
 MeroLua.sendText(msg_chat_id,msg_id,'هذا ليس ملف')
 end
 end
-if text == 'تنزيل abaza' then
+if text == 'تنزيل الملف' then
 if not msg.ControllerBot then 
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
 end
@@ -5408,7 +5408,7 @@ end
 --download('https://github.com/baselabaza/abaza/abaza.lua','abaza.lua')
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم تحديث السورس * ',"md",true)  
 end
-if text == 'السيرفر ☤' and ChCheck(msg) then
+if text == 'السيرفر ☤' and ChCheck(msg) or text == 'السيرفر' and ChCheck(msg) then
 
 
 if not msg.ControllerBot then 
@@ -6787,10 +6787,10 @@ local list = {"3","5","-3","-5","="}
 RtList = list[math.random(#list)]
 if RtList == "3" then
 Redis:incrby(abaza.."abaza:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id,3)
-StatusRt = "الف مبروك حظك حلو يانه  ربحث 3  نقاط"
+StatusRt = "الف مبروك حظك حلو ربحت 3 نقاط"
 elseif RtList == "5" then
 Redis:incrby(abaza.."abaza:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id,5)
-StatusRt = "الف مبروك حظك حلو يانه  ربحث 5  نقاط"
+StatusRt = "الف مبروك حظك حلو  ربحت 5  نقاط"
 elseif RtList == "-3" then
 Redis:decrby(abaza.."abaza:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id,3)  
 StatusRt = "للاسف حظك زفت خسرت 3 نقاط"
@@ -6798,7 +6798,7 @@ elseif RtList == "-5" then
 Redis:decrby(abaza.."abaza:Num:Add:Games"..msg.chat_id..msg.sender_id.user_id,5)  
 StatusRt = "للاسف حظك زفت خسرت 5 نقاط"
 elseif RtList == "=" then
-StatusRt = "حظك معلك اليوم لا ربح ولا خساره"
+StatusRt = "حظك معلق اليوم لا ربح ولا خساره"
 end
 return MeroLua.sendText(msg.chat_id,msg.id,"☤︙"..StatusRt,"md",true)  
 end
@@ -9485,7 +9485,7 @@ Redis:set(abaza.."gamebot:Set:Manager:rdd"..msg.sender_id.user_id..":"..msg.chat
 return MeroLua.sendText(msg.chat_id,msg.id,"ارسل السؤال ")
 end
 
-if text == "كت تويت" and ChCheck(msg) then
+if text == "كت تويت" and ChCheck(msg) or text == "كت" and ChCheck(msg) or text == "تويت" and ChCheck(msg) then
 if Redis:get(abaza.."abaza:Status:Games"..msg.chat_id) then 
 local list = Redis:smembers(abaza.."gamebot:List:Manager")
 if #list ~= 0 then
@@ -9840,7 +9840,7 @@ local textting = {
 for k,v in pairs(textting) do
 Redis:sadd(abaza.."gamebot:Textting:Manager",v)
 end
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم اضافه اسئله كت* ',"md",true)  
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم اضافه اسئله لو خيروك* ',"md",true)  
 end
 if text == 'الصراحه' and ChCheck(msg) or text == 'صراحه' and ChCheck(msg) then
 if Redis:get(abaza.."abaza:Status:Games"..msg.chat_id) then 
@@ -10049,7 +10049,7 @@ Redis:set(abaza.."abaza:Aldel:Chat"..msg.chat_id,"true")
 return MeroLua.sendText(msg_chat_id,msg_id,"☤︙تم تفعيل جميع الاوامر\n✓" )
 end
 
-if text == 'اسالني' and ChCheck(msg) then
+if text == 'اسألني' and ChCheck(msg) then
 if Redis:get(abaza.."abaza:Status:Games:malk"..msg.chat_id) then
 return false 
 end
@@ -10162,7 +10162,7 @@ for k,v in pairs(list) do
 t = t..""..k.."- (["..v.."])\n"
 end
 if #list == 0 then
-t = "• لا يوجد الغازمضافه"
+t = "• لا يوجد الغاز مضافه"
 end
 return MeroLua.sendText(msg_chat_id,msg_id,t)
 end
@@ -12040,7 +12040,7 @@ Textes = math.random(#texting)
 end
 end
 
-if text == 'السيرفر' and ChCheck(msg) or text == 'السيرفر ☤' and ChCheck(msg) then
+if text == 'السيرفر ☤' and ChCheck(msg) then
 
 
 if not msg.ControllerBot then 
