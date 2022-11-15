@@ -19979,19 +19979,18 @@ if text == 'السورس' and ChCheck(msg) or text == 'سورس' and ChCheck(msg
 
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '- قناة السورس .',url="t.me/JJXXH"},
-{text = '- جروب السورس .',url="t.me/abazaxx"}},
-{{text = '- تواصل السورس .',url="https://t.me/Abazaxbot"}},
-{{text = '- المطور .',url="t.me/B100Q"},
-{text = '- المطور .',url="t.me/XB0BB"},
-{text = '- المطور .',url="https://t.me/JOK_XII"}},
-{{text = '- لتنصيب بوت .',url="https://t.me/JJXXH"}},
+{{text = '- قـنـاة الـسـورس 📖 .',url="t.me/JJXXH"},
+{text = '- جـروب الـدعـم 📜.',url="t.me/abazaxx"}},
+{{text = '- تـواصـل الـسـورس 💬.',url="https://t.me/Abazaxbot"}},
+{text = '- مـطـوري الـسـورس🔮',url="https://telegra.ph/ABAZA-11-12-4"}},
+{{text = '𝙰𝙱𝙰𝚉𝙰 𝙼𝚄𝚂𝙸𝙲 🎧.',url="https://t.me/xmusicbbot"}},
+{{text = '- مـزيـد مـن الـبـوتـات 🤖.',url="https://t.me/B100T"}},
 }
 local msg_id = msg.id/2097152/0.5
 return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id=' .. msg.chat_id .. '&photo=https://t.me/JJXXH&caption=' .. URL.escape([[
 *⦑ Welcome to Source ⦒
 ☤ ⦑ SOURCE ABAZA ⦒
-☤ Source version : 2.0* 
+☤ Source version : 2.1* 
 — — — — — — — — —
 ]]).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 elseif text == 'الاوامر' and ChCheck(msg) then
