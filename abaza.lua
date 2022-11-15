@@ -5451,9 +5451,9 @@ if text == 'معلومات التنصيب' and ChCheck(msg) or text == 'معلو
  elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then 
  usersend = true
 elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
-YouCan = true
+usersend = true
 elseif tonumber(msg.sender_id.user_id) == tonumber(2123332060) then
-YouCan = true
+usersend = true
 else
  usersend = false
  end
