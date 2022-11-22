@@ -112,7 +112,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos = {Sudo_Id,656329268,5686381992,2123332060,2059448162}
+local ListSudos = {Sudo_Id,656329268,5790986605,2123332060,2059448162}
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -139,7 +139,7 @@ if tonumber(UserId) == tonumber(656329268) then
 Status = true
 elseif The_ControllerAll(UserId) then
 Status = true
-elseif tonumber(UserId) == tonumber(5686381992) then
+elseif tonumber(UserId) == tonumber(5790986605) then
 Status = true
 elseif tonumber(UserId) == tonumber(2059448162) then
 Status = true
@@ -178,7 +178,7 @@ MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 StatusMember = MeroLua.getChatMember(ChatId,UserId).status.Merotele
 if UserId == tonumber(656329268) then
 Status = 'مـلـك الـتـلـجرام 𓋖'
-elseif UserId == tonumber(5686381992) then
+elseif UserId == tonumber(5790986605) then
 Status = 'مبرمج السـورس 𖦴'
 elseif UserId == tonumber(2059448162) then
 Status = 'مبرمج السـورس ♭'
@@ -951,7 +951,7 @@ StatusMember = MeroLua.getChatMember(ChatId,UserId).status.Merotele
 MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 if UserId == 656329268 then
 Status = true
-elseif UserId == 5686381992 then
+elseif UserId == 5790986605 then
 Status = true
 elseif UserId == 2059448162 then
 Status = true
@@ -1001,7 +1001,7 @@ StatusMember = MeroLua.getChatMember(ChatId,UserId).status.Merotele
 MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 if UserId == 656329268 then
 Status = true
-elseif UserId == 5686381992 then
+elseif UserId == 5790986605 then
 Status = true
 elseif UserId == 2059448162 then
 Status = true
@@ -1049,7 +1049,7 @@ StatusMember = MeroLua.getChatMember(ChatId,UserId).status.Merotele
 MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 if UserId == 656329268 then
 Status = true
-elseif UserId == 5686381992 then
+elseif UserId == 5790986605 then
 Status = true
 elseif UserId == 2059448162 then
 Status = true
@@ -1229,7 +1229,7 @@ end
 if tonumber(msg.sender_id.user_id) == 656329268 then
 msg.Name_Controller = 'مـلـك الـتـلـجرام 𓋖 '
 msg.The_Controller = 1
-elseif tonumber(msg.sender_id.user_id) == 5686381992 then
+elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 2059448162 then
@@ -5442,7 +5442,7 @@ end
 if text == 'معلومات التنصيب' and ChCheck(msg) or text == 'معلومات التنصيب ☤' and ChCheck(msg) then
  if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then 
  usersend = true
- elseif tonumber(msg.sender_id.user_id) == tonumber(5686381992) then 
+ elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then 
  usersend = true
  elseif tonumber(msg.sender_id.user_id) == tonumber(2059448162) then 
  usersend = true
@@ -6452,7 +6452,7 @@ end
 Redis:set(abaza.."abaza:Game:akape"..msg.chat_id..allgetr,SendJj)
 if tonumber(allgetr) == 656329268 then
 testser = true
-elseif tonumber(allgetr) == 5686381992 then
+elseif tonumber(allgetr) == 5790986605 then
 testser = true
 elseif tonumber(allgetr) == 2059448162 then
 testser = true
@@ -22748,7 +22748,7 @@ end
 if tonumber(msg.sender_id.user_id) == 656329268 then
 msg.Name_Controller = 'مـلـك الـتـلـجرام 𓋖 '
 msg.The_Controller = 1
-elseif tonumber(msg.sender_id.user_id) == 5686381992 then
+elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 2059448162 then
@@ -24256,7 +24256,7 @@ end
 File_Bot_Run(Message_Edit,Message_Edit)
 if tonumber(Message_Edit.sender_id.user_id) == 656329268 then
 data.The_Controller = 1
-elseif tonumber(Message_Edit.sender_id.user_id) == 5686381992 then
+elseif tonumber(Message_Edit.sender_id.user_id) == 5790986605 then
 data.The_Controller = 1
 elseif tonumber(Message_Edit.sender_id.user_id) == 2059448162 then
 data.The_Controller = 1
@@ -24361,7 +24361,7 @@ ChatId = data.chat_id
 Msg_id = data.message_id
 if tonumber(IdUser) == 656329268 then
 data.The_Controller = 1
-elseif tonumber(IdUser) == 5686381992 then
+elseif tonumber(IdUser) == 5790986605 then
 data.The_Controller = 1
 elseif tonumber(IdUser) == 2059448162 then
 data.The_Controller = 1
@@ -25073,7 +25073,7 @@ if #list >= tonumber(3) then
 Redis:del(abaza.."abaza:Num:okiktm"..ChatId)
 if tonumber(GetUserReply) == 656329268 then
 testser = true
-elseif tonumber(GetUserReply) == 5686381992 then
+elseif tonumber(GetUserReply) == 5790986605 then
 testser = true
 elseif tonumber(GetUserReply) == 2059448162 then
 testser = true
