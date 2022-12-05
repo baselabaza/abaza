@@ -15961,8 +15961,8 @@ end
 end
 
 
-if Redis:get(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id) == "mp3" then
-Redis:del(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id)
+if Redis:get(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id) == "mp3" then
+Redis:del(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id)
 local rep = msg.id/2097152/0.5
 local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
 local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
@@ -15978,11 +15978,11 @@ print(link)
 os.execute("yt-dlp "..link.." -f 251 -o '"..title..".mp3'")
 Merotele.sendAudio(msg_chat_id,msg_id,'./'..title..'.mp3',"["..title.."]("..link..")","md",nil,title)
 https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(abaza.."youtube"..msg.sender.user_id..msg_chat_id)
+Redis:del(abaza.."youtube"..msg.sender_id.user_id..msg_chat_id)
 sleep(2)
 os.remove(""..title..".mp3")
 end
-if Redis:get(abaza.."aabza:youtube"..msg.sender.user_id..msg_chat_id) == "mp4" then
+if Redis:get(abaza.."aabza:youtube"..msg.sender_id.user_id..msg_chat_id) == "mp4" then
 local rep = msg.id/2097152/0.5
 local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
 local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
@@ -15997,7 +15997,7 @@ local title = title:gsub('"',"-")
 os.execute("yt-dlp "..link.." -f 18 -o '"..title..".mp4'")
 Merotele.sendVideo(msg_chat_id,msg_id,'./'..title..'.mp4',"["..title.."]("..link..")","md") 
 https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id)
+Redis:del(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id)
 sleep(2)
 os.remove(""..title..".mp4")
 end
@@ -16006,7 +16006,7 @@ local reply_markup = Merotele.replyMarkup{
 type = 'inline',
 data = {
 {
-{text = '𝑀𝑃3', data = msg.sender.user_id..'/mp3'..msg_id}, {text = '𝑀𝑃4', data = msg.sender.user_id..'/mp4'..msg_id}, 
+{text = '𝑀𝑃3', data = msg.sender_id.user_id..'/mp3'..msg_id}, {text = '𝑀𝑃4', data = msg.sender_id.user_id..'/mp4'..msg_id}, 
 },
 {
 {text = 'ALTHEEB ', url = "https://t.me/e_b50"}
@@ -16026,7 +16026,7 @@ local datar = {data = {{text = "٠ ALTHEEB ٠" , url = 'https://t.me/e_b50'}}}
 for i = 1,5 do
 title = json.results[i].title
 link = json.results[i].url
-datar[i] = {{text = title , data =msg.sender.user_id.."dl/"..link}}
+datar[i] = {{text = title , data =msg.sender_id.user_id.."dl/"..link}}
 end
 local reply_markup = Merotele.replyMarkup{
 type = 'inline',
