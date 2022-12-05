@@ -112,7 +112,7 @@ return Chat_Type
 end
 function The_ControllerAll(UserId)
 ControllerAll = false
-local ListSudos = {Sudo_Id,656329268,5790986605,2123332060,2059448162}
+local ListSudos = {Sudo_Id,656329268,5790986605,2123332060}
 for k, v in pairs(ListSudos) do
 if tonumber(UserId) == tonumber(v) then
 ControllerAll = true
@@ -140,8 +140,6 @@ Status = true
 elseif The_ControllerAll(UserId) then
 Status = true
 elseif tonumber(UserId) == tonumber(5790986605) then
-Status = true
-elseif tonumber(UserId) == tonumber(2059448162) then
 Status = true
 elseif tonumber(UserId) == tonumber(2123332060) then
 Status = true
@@ -180,8 +178,6 @@ if UserId == tonumber(656329268) then
 Status = 'مـلـك الـتـلـجرام 𓋖'
 elseif UserId == tonumber(5790986605) then
 Status = 'مبرمج السـورس 𖦴'
-elseif UserId == tonumber(2059448162) then
-Status = 'مبرمج السـورس ♭'
 elseif UserId == tonumber(2123332060) then
   Status = 'مطور السورس'
 elseif UserId == tonumber(Sudo_Id) then  
@@ -953,8 +949,6 @@ if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
 Status = true
-elseif UserId == 2059448162 then
-Status = true
 elseif UserId == 2123332060 then
 Status = true
 elseif UserId == Sudo_Id then  
@@ -1003,8 +997,6 @@ if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
 Status = true
-elseif UserId == 2059448162 then
-Status = true
 elseif UserId == 2123332060 then
 Status = true
 elseif UserId == Sudo_Id then  
@@ -1050,8 +1042,6 @@ MalekAsase = Redis:sismember(abaza.."abaza:MalekAsase:Group"..ChatId,UserId)
 if UserId == 656329268 then
 Status = true
 elseif UserId == 5790986605 then
-Status = true
-elseif UserId == 2059448162 then
 Status = true
 elseif UserId == 2123332060 then
 Status = true
@@ -1158,7 +1148,7 @@ return Var
 end
 function ChCheck(msg)
 local var = true 
-if Redis:get(abaza.."Abs:ChId") and not Redis:get(abaza..'Abs:ChIdAll') and msg.sender_id.user_id ~= 656329268 or msg.sender_id.user_id ~= 2059448162 then 
+if Redis:get(abaza.."Abs:ChId") and not Redis:get(abaza..'Abs:ChIdAll') and msg.sender_id.user_id ~= 656329268 then
 local url , res = https.request('https://api.telegram.org/bot'..Token..'/getchatmember?chat_id='..Redis:get(abaza..'Abs:ChId')..'&user_id='..msg.sender_id.user_id)
 local data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
@@ -1231,9 +1221,6 @@ msg.Name_Controller = 'مـلـك الـتـلـجرام 𓋖 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 5790986605 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
-msg.The_Controller = 1
-elseif tonumber(msg.sender_id.user_id) == 2059448162 then
-msg.Name_Controller = 'مبرمج السـورس ♭'
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 2123332060 then
 msg.Name_Controller = 'مطور السورس '
@@ -1683,11 +1670,11 @@ end
 print('This is reply_markup')
 end 
 local UserInfo = MeroLua.getUser(msg.sender_id.user_id)
-if msg.sender_id.user_id ~= 656329268 or msg.sender_id.user_id ~= 2059448162 then  
+if msg.sender_id.user_id ~= 656329268 then 
 local names = (UserInfo.first_name or '...')..(UserInfo.last_name or '...')
 if names and  names:find("JỒĶэℜ") then
 MeroLua.deleteMessages(msg.chat_id,{[1]= msg.id})
-return MeroLua.sendText(msg_chat_id,0,'☤︙[هلو حبيبي ، ميصير تنتحل مطور السورس](tg://user?id='..msg.sender_id.user_id..')\n\n☤︙حساب مطور السورس الاصلي هذا @B100Q\n\n ☤︙او تقدر تكتب المبرمج وراح يطلعلك حساب مطور السورس',"md")
+return MeroLua.sendText(msg_chat_id,0,'☤︙[هلو حبيبي ، ميصير تنتحل مطور السورس](tg://user?id='..msg.sender_id.user_id..')\n\n☤︙حساب مطور السورس الاصلي هذا @JOK_XII\n\n ☤︙او تقدر تكتب المبرمج وراح يطلعلك حساب مطور السورس',"md")
 end
 end
 if msg.content.location and not msg.Distinguished then  -- الموقع
@@ -2451,7 +2438,7 @@ end
 end
 end
 if text and Redis:get(abaza..'Abs:ChIdAll') then
-if Redis:get(abaza.."Abs:ChId") and msg.sender_id.user_id ~= 656329268 or msg.sender_id.user_id ~= 2059448162 then 
+if Redis:get(abaza.."Abs:ChId") and msg.sender_id.user_id ~= 656329268 then
 local url , res = https.request('https://api.telegram.org/bot'..Token..'/getchatmember?chat_id='..Redis:get(abaza.."Abs:ChId")..'&user_id='..msg.sender_id.user_id)
 local data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
@@ -5429,7 +5416,26 @@ end
 --download('https://github.com/baselabaza/abaza/abaza.lua','abaza.lua')
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙تم تحديث السورس * ',"md",true)  
 end
+if text == 'السيرفر ☤'  and ChCheck(msg) or text == 'السيرفر'  and ChCheck(msg) then
 
+
+if not msg.ControllerBot then 
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+end
+MeroLua.sendText(msg_chat_id,msg_id, io.popen([[
+linux_version=lsb_release -ds
+memUsedPrc=free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'
+HardDisk=df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'
+CPUPer=top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'
+uptime=uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'
+echo '☤︙ •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
+echo '*------------------------------\n*☤︙ •⊱ { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '*------------------------------\n*☤︙ •⊱ { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '*------------------------------\n*☤︙ •⊱ { الـمــعــالــج } ⊰•\n*»» '"grep -c processor /proc/cpuinfo""Core ~ {$CPUPer%} "'*'
+echo '*------------------------------\n*☤︙ •⊱ { الــدخــول } ⊰•\n*»» 'whoami'*'
+echo '*------------------------------\n*☤︙ •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all'),"md")
+end
 if text == "مسح تخزين البوت" and ChCheck(msg) or text == "مسح تخزين البوت ☤" and ChCheck(msg) then
 if tonumber(msg.sender_id.user_id) == tonumber(656329268) then 
 local keys = Redis:keys(abaza..'*')
@@ -5443,8 +5449,6 @@ if text == 'معلومات التنصيب' and ChCheck(msg) or text == 'معلو
  if tonumber(msg.sender_id.user_id) == tonumber(Sudo_Id) then 
  usersend = true
  elseif tonumber(msg.sender_id.user_id) == tonumber(5790986605) then 
- usersend = true
- elseif tonumber(msg.sender_id.user_id) == tonumber(2059448162) then 
  usersend = true
 elseif tonumber(msg.sender_id.user_id) == tonumber(656329268) then
 usersend = true
@@ -5480,7 +5484,7 @@ return MeroLua.sendText(msg_chat_id,msg_id, '☤︙حسننا عزيزي \n☤ �
 end 
 end
 if text == "ضع تاريخ الاشتراك" and ChCheck(msg) or text == "ضع تاريخ الاشتراك ☤" and ChCheck(msg) then
-if msg.sender_id.user_id ~= 656329268 or msg.sender_id.user_id ~= 2059448162 then 
+if msg.sender_id.user_id ~= 656329268 then 
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور السورس }* ',"md",true)  
 end
 Redis:set(abaza.."data:botsashtrak"..msg_chat_id..msg.sender_id.user_id,true)
@@ -6454,8 +6458,6 @@ if tonumber(allgetr) == 656329268 then
 testser = true
 elseif tonumber(allgetr) == 5790986605 then
 testser = true
-elseif tonumber(allgetr) == 2059448162 then
-testser = true
 elseif tonumber(allgetr) == 2123332060 then
 testser = true
 elseif The_ControllerAll(allgetr) == true then  
@@ -6610,6 +6612,8 @@ local UserInfo = MeroLua.getUser(user1)
 local listTow = "☤︙الف مبروك تم زواجك من : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return MeroLua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
+
+
 if text and text:match('^انذار @(%S+)$') and ChCheck(msg) then
 local UserName = text:match('^انذار @(%S+)$')
 if Redis:get(abaza.."lock_inthare"..msg.chat_id) then
@@ -11812,45 +11816,6 @@ return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_i
 end
 end
 end
-if text == 'مبرمج السورس' and ChCheck(msg) or text == 'ماديسون' and ChCheck(msg) or text == 'احمد' and ChCheck(msg) or text == 'احمد ماديسون' and ChCheck(msg) then  
-local UserId_Info = MeroLua.searchPublicChat("MaDyY_y")
-if UserId_Info.id then
-local UserInfo = MeroLua.getUser(UserId_Info.id)
-local InfoUser = MeroLua.getUserFullInfo(UserId_Info.id)
-if InfoUser.bio then
-Bio = InfoUser.bio
-else
-Bio = ''
-end
-if UserInfo.username then
-UserInfousername = '[@'..UserInfo.username..']'
-else
-UserInfousername = 'لا يوجد'
-end
-local photo = MeroLua.getUserProfilePhotos(UserId_Info.id)
-if photo and photo.total_count and photo.total_count > 0 then
-local TestText = "*☤︙𝙳𝙴𝚅 𝙽𝙰𝙼𝙴 : * ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") .\n*☤︙𝙳𝙴𝚅 𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴* : "..UserInfousername.."\n*☤︙𝙳𝙴𝚅 𝙸𝙳 : *"..UserInfo.id.." .\n*☤︙𝙳𝙴𝚅 𝙱𝙸𝙾 : * ["..Bio.."] ."
-keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '- قناة السورس .', url='https://t.me/JJXXH'},
-},
-}
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendPhoto?chat_id='..msg.chat_id..'&caption='..URL.escape(TestText)..'&photo='..photo.photos[1].sizes[#photo.photos[1].sizes].photo.remote.id..'&reply_to_message_id='..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
-else
-local TestText = "- معلومات مطور السورس : \n\n*☤︙name:* ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..")\n\n*☤︙user :* "..UserInfousername.."\n\n*☤︙Bio:* ["..Bio.."]"
-keyboardd = {} 
-keyboardd.inline_keyboard = {
-{
-{text = '- قناة السورس .', url='https://t.me/JJXXH'},
-},
-}
-local msg_id = msg.id/2097152/0.5 
-return https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id .. '&text=' .. URL.escape(TestText).."&reply_to_message_id="..msg_id..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboardd))
-end
-end
-end
 
 if text == 'المطور' and ChCheck(msg) or text == 'مطور البوت' and ChCheck(msg) or text == 'مطور' and ChCheck(msg) then   
 local UserInfo = MeroLua.getUser(Sudo_Id) 
@@ -12089,26 +12054,7 @@ Textes = math.random(#texting)
 end
 end
 
-if text == 'السيرفر' and ChCheck(msg) or text == 'السيرفر ☤' and ChCheck(msg) then
 
-
-if not msg.ControllerBot then 
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
-end
-MeroLua.sendText(msg_chat_id,msg_id, io.popen([[
-linux_version=`lsb_release -ds`
-memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
-HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
-CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
-uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '☤︙ •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
-echo '*------------------------------\n*☤︙ •⊱ { الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
-echo '*------------------------------\n*☤︙ •⊱ { وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
-echo '*------------------------------\n*☤︙ •⊱ { الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '*------------------------------\n*☤︙ •⊱ { الــدخــول } ⊰•\n*»» '`whoami`'*'
-echo '*------------------------------\n*☤︙ •⊱ { مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
-]]):read('*all'),"md")
-end
 
 if text == 'صلاحياتي' and ChCheck(msg) then
 
@@ -16013,6 +15959,68 @@ end
 end
 end
 end
+
+
+if Redis:get(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id) == "mp3" then
+Redis:del(abaza.."youtube"..msg.sender.user_id..msg_chat_id)
+local rep = msg.id/2097152/0.5
+local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
+local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
+local j = JSON.decode(se)
+local link = j.results[1].url
+local title = j.results[1].title 
+local title = title:gsub("/","-") 
+local title = title:gsub("\n","-") 
+local title = title:gsub("|","-") 
+local title = title:gsub("'","-") 
+local title = title:gsub('"',"-") 
+print(link)
+os.execute("yt-dlp "..link.." -f 251 -o '"..title..".mp3'")
+Merotele.sendAudio(msg_chat_id,msg_id,'./'..title..'.mp3',"["..title.."]("..link..")","md",nil,title)
+https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
+Redis:del(abaza.."youtube"..msg.sender.user_id..msg_chat_id)
+sleep(2)
+os.remove(""..title..".mp3")
+end
+if Redis:get(abaza.."aabza:youtube"..msg.sender.user_id..msg_chat_id) == "mp4" then
+local rep = msg.id/2097152/0.5
+local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
+local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
+local j = JSON.decode(se)
+local link = j.results[1].url
+local title = j.results[1].title 
+local title = title:gsub("/","-") 
+local title = title:gsub("\n","-") 
+local title = title:gsub("|","-") 
+local title = title:gsub("'","-") 
+local title = title:gsub('"',"-") 
+os.execute("yt-dlp "..link.." -f 18 -o '"..title..".mp4'")
+Merotele.sendVideo(msg_chat_id,msg_id,'./'..title..'.mp4',"["..title.."]("..link..")","md") 
+https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
+Redis:del(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id)
+sleep(2)
+os.remove(""..title..".mp4")
+end
+if text == "يوتيوب" or text == 'يوت' or text == 'YouTube' or text == 'The Youtube' or text == 'Youtube' or text == 'youtube' or text == 'You Tube' or text == 'YT' or text == 'Yt' then
+local reply_markup = Merotele.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '𝑀𝑃3', data = msg.sender.user_id..'/mp3'..msg_id}, {text = '𝑀𝑃4', data = msg.sender.user_id..'/mp4'..msg_id}, 
+},
+{
+{text = 'ALTHEEB ', url = "https://t.me/e_b50"}
+},
+}
+}
+return send(msg_chat_id,msg_id, [[*
+٠ 𝐶𝐻𝑂𝑂𝑆𝐸 𝐻𝑂𝑊 𝑌𝑂𝑈 𝑊𝐴𝑁𝑇 𝑇𝑂 𝐷𝑂𝑊𝑁𝐿𝑂𝐴𝐷 .
+*]],"md",false, false, false, false, reply_markup)
+end
+
+
+
+
 if text == 'تاك' and (Redis:get(abaza..'tagallgroup'..msg.chat_id) == "open") then
 if not msg.Addictive then
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -19670,7 +19678,7 @@ for k,v in pairs(list) do
 if Redis:get(abaza.."abaza:Add:Rd:Sudo:Gif"..v) then
 db = "متحركه 🎭"
 elseif Redis:get(abaza.."abaza:Add:Rd:Sudo:vico"..v) then
-db = "بصمه ??"
+db = "بصمه 📢"
 elseif Redis:get(abaza.."abaza:Add:Rd:Sudo:stekr"..v) then
 db = "ملصق 🃏"
 elseif Redis:get(abaza.."abaza:Add:Rd:Sudo:Text"..v) then
@@ -19990,7 +19998,6 @@ end
 Redis:set(abaza..'abaza:GetTexting:Devabaza'..msg_chat_id..':'..msg.sender_id.user_id,true)
 return MeroLua.sendText(msg_chat_id,msg_id,[[
 ☤︙ارسل الكليشه الان ، 
-☤︙يمكنك اختيار كلايش من هنا @klaishsudo
 ☤︙يمكنك وضع : 
 ☤︙`#namemsudo` اسم المطور الاساسي مع الماركداون ،
 ☤︙`#namesudo` اسم المطور الاساسي بدون ماركداون ، 
@@ -20007,6 +20014,198 @@ end
 
 Redis:del(abaza..'abaza:Texting:Devabaza')
 return MeroLua.sendText(msg_chat_id,msg_id,'☤︙ تم مسح كليشه المطور')
+end
+
+
+---استبدال كلمه--
+if text == "استبدال كلمه" then
+if not msg.ControllerBot then
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
+end
+Redis:set(abaza..msg.chat_id..senderr.."replace",true)
+return bot.sendText(msg_chat_id,msg_id,'\n• ارسل الكلمه القديمه ليتم استبدالها',"md",true)  
+end
+if text == "مسح الكلمات المستبدله" then
+if not msg.ControllerBot then
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
+end
+local list = Redis:smembers(abaza.."Words:r")
+for k,v in pairs(list) do
+Redis:del(abaza.."Word:Replace"..v)
+end
+Redis:del(abaza.."Words:r")
+send(msg_chat_id,msg_id,"• تم مسح الكلمات المستبدله")
+end
+if text == "الكلمات المستبدله" then
+if not msg.ControllerBot then
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
+end
+local list = Redis:smembers(abaza.."Words:r")
+if #list == 0 then
+return MeroLua.sendText(msg.chat_id,msg.id,"• لا توجد كلمات مستبدله")
+end
+local txx = " قائمه الكلمات المستبدله \n"
+for k,v in pairs(list) do 
+cmdd = Redis:get(abaza.."Word:Replace"..v)
+txx = txx..k.." - "..v.." »» "..cmdd.."\n"
+end
+bot.sendText(msg_chat_id,msg_id,txx)
+end
+----
+if text == ("مسح الردود الانلاين") then
+if not msg.Managers then
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+end
+
+
+local list = Redis:smembers(abaza.."abaza:List:Manager"..msg_chat_id.."")
+for k,v in pairs(list) do
+Redis:del(abaza.."abaza:Add:Rd:Manager:Gif:inline"..v..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Vico:inline"..v..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Stekrs:inline"..v..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Text:inline"..v..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photo:inline"..v..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photoc:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Add:Rd:Manager:Video:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Add:Rd:Manager:Videoc:inline"..v..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:File:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Add:Rd:Manager:video_note:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Add:Rd:Manager:Audio:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Add:Rd:Manager:Audioc:inline"..v..msg_chat_id)
+Redis:del(abaza..abaza:"Rd:Manager:inline:v"..v..msg_chat_id)
+Redis:del(abaza.."abaza:Rd:Manager:inline:link"..v..msg_chat_id)
+Redis:del(abaza.."abaza:List:Manager:inline"..msg_chat_id)
+end
+return MeroLua.sendText(msg_chat_id,msg_id,"• تم مسح قائمه الانلاين","md",true)
+end
+if text == "اضف رد انلاين" then
+if not msg.Managers then
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(6)..' }* ',"md",true)  
+end
+Redis:set(abaza.."abaza:Set:Manager:rd"..msg.sender_id.user_id..":"..msg_chat_id,true)
+local reply_markup = MeroLua.replyMarkup{
+type = 'inline',
+data = {
+{
+{text = '- الغاء الامر ', data =msg.sender_id.user_id..'/cancelamr'}
+},
+}
+}
+return MeroLua.sendText(msg_chat_id,msg_id,"☤︙ارسل الان اسم الرد لاضافته في الردود ", 'md', false, false, false, false, reply_markup)
+end
+if text and text:match("^(.*)$") and tonumber(senderr) ~= tonumber(abaza) then
+if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "true" then
+Redis:set(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id,"true1")
+Redis:set(abaza.."abaza:Text:Manager:inline"..senderr..":"..msg_chat_id, text)
+Redis:del(abaza..abaza:"Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Vico:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Text:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Video:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:File:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
+Redis:del(abaza.."abazaAdd:Rd:Manager:Audio:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Rd:Manager:inline:text"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Rd:Manager:inline:link"..text..msg_chat_id)
+Redis:sadd(abaza.."abaza:List:Manager:inline"..msg_chat_id.."", text)
+MeroLua.sendText(msg_chat_id,msg_id,[[
+↯︙ارسل لي الرد سواء كان 
+❨ ملف ، ملصق ، متحركه ، صوره
+ ، فيديو ، بصمه الفيديو ، بصمه ، صوت ، رساله ❩
+↯︙يمكنك اضافة الى النص •
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+ `#username` ↬ معرف المستخدم
+ `#msgs` ↬ عدد الرسائل
+ `#name` ↬ اسم المستخدم
+ `#id` ↬ ايدي المستخدم
+ `#stast` ↬ رتبة المستخدم
+ `#edit` ↬ عدد التعديلات
+
+]],"md",true)
+return false
+end
+end
+if text and text:match("^(.*)$") then
+if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id.."") == "true2" then
+Redis:del(abaza.."abaza:Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Vico:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Text:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photo:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Photoc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Video:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Videoc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:File:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:video_note:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Audio:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Add:Rd:Manager:Audioc:inline"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Rd:Manager:inline:text"..text..msg_chat_id)
+Redis:del(abaza.."abaza:Rd:Manager:inline:link"..text..msg_chat_id)
+Redis:del(abaza..":abazaSet:Manager:rd:inline"..senderr..":"..msg_chat_id.."")
+Redis:srem(abaza.."abaza:List:Manager:inline"..msg_chat_id.."", text)
+return MeroLua.sendText(msg_chat_id,msg_id,"• تم حذف الرد من الردود الانلاين ","md",true)
+return false
+end
+end
+if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "true1" and tonumber(senderr) ~= tonumber(abaza) then
+Redis:del(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id)
+Redis:set(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id,"set_inline")
+if text or msg.content.video_note or msg.content.document or msg.content.audio or msg.content.video or msg.content.voice_note or msg.content.sticker or msg.content.animation or msg.content.photo then
+local anubis = Redis:get(abaza.."abaza:Text:Manager:inline"..senderr..":"..msg_chat_id)
+if msg.content.text then 
+text = text:gsub('"',"") 
+text = text:gsub('"',"") 
+text = text:gsub("`","") 
+text = text:gsub("*","") 
+Redis:set(abaza.."abaza:Add:Rd:Manager:Text:inline"..anubis..msg_chat_id, text)
+elseif msg.content.sticker then 
+Redis:set(abaza.."abaza:Add:Rd:Manager:Stekrs:inline"..anubis..msg_chat_id, msg.content.sticker.sticker.remote.id)
+elseif msg.content.voice_note then
+Redis:set(abaza.."abaza:Add:Rd:Manager:Vico:inline"..anubis..msg_chat_id, msg.content.voice_note.voice.remote.id)
+elseif msg.content.audio then
+Redis:set(abaza.."abaza:Add:Rd:Manager:Audio:inline"..anubis..msg_chat_id, msg.content.audio.audio.remote.id)
+Redis:set(abaza.."abaza:Add:Rd:Manager:Audioc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+elseif msg.content.document then
+Redis:set(abaza.."abaza:Add:Rd:Manager:File:inline"..anubis..msg_chat_id, msg.content.document.document.remote.id)
+elseif msg.content.animation then
+Redis:set(abaza.."abaza:Add:Rd:Manager:Gif:inline"..anubis..msg_chat_id, msg.content.animation.animation.remote.id)
+elseif msg.content.video_note then
+Redis:set(abaza.."abaza:Add:Rd:Manager:video_note:inline"..anubis..msg_chat_id, msg.content.video_note.video.remote.id)
+elseif msg.content.video then
+Redis:set(abaza.."abaza:Add:Rd:Manager:Video:inline"..anubis..msg_chat_id, msg.content.video.video.remote.id)
+Redis:set(abaza.."abaza:Add:Rd:Manager:Videoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+elseif msg.content.photo then
+if msg.content.photo.sizes[1].photo.remote.id then
+idPhoto = msg.content.photo.sizes[1].photo.remote.id
+elseif msg.content.photo.sizes[2].photo.remote.id then
+idPhoto = msg.content.photo.sizes[2].photo.remote.id
+elseif msg.content.photo.sizes[3].photo.remote.id then
+idPhoto = msg.content.photo.sizes[3].photo.remote.id
+end
+Redis:set(abaza.."abaza:Add:Rd:Manager:Photo:inline"..anubis..msg_chat_id, idPhoto)
+Redis:set(abaza.."abaza:Add:Rd:Manager:Photoc:inline"..anubis..msg_chat_id, msg.content.caption.text)
+end
+send(msg_chat_id,msg_id,"• الان ارسل الكلام داخل الزر","md",true)
+return false
+end
+end
+if text and Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "set_inline" then
+Redis:set(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id, "set_link")
+local anubis = Redis:get(abaza.."abaza:Text:Manager:inline"..senderr..":"..msg_chat_id)
+Redis:set(abaza.."abaza:Rd:Manager:inline:text"..anubis..msg_chat_id, text)
+send(msg_chat_id,msg_id,"• الان ارسل الرابط","md",true)
+return false
+end
+if text and Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "set_link" then
+Redis:del(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id)
+local anubis = Redis:get(abaza.."abaza:Text:Manager:inline"..senderr..":"..msg_chat_id)
+Redis:set(abaza.."abaza:Rd:Manager:inline:link"..anubis..msg_chat_id, text)
+send(msg_chat_id,msg_id,"• تم اضافه الرد بنجاح","md",true)
+return false
 end
 
 
@@ -20737,8 +20936,8 @@ return MeroLua.sendText(msg_chat_id,msg_id,BotName[math.random(#BotName)],"md",t
 end
 end
 if text == 'تنظيف المشتركين' and ChCheck(msg) then
-if not msg.ControllerBot then 
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+if msg.sender_id.user_id ~= 656329268 then 
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور السورس }* ',"md",true)  
 end
 
 
@@ -20759,8 +20958,8 @@ return MeroLua.sendText(msg_chat_id,msg_id,'*☤︙العدد الكلي { '..#l
 end
 end
 if text == 'تنظيف المجموعات' and ChCheck(msg) then
-if not msg.ControllerBot then 
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+if msg.sender_id.user_id ~= 656329268 then 
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور السورس }* ',"md",true)  
 end
 
 
@@ -21528,7 +21727,7 @@ name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑??🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟🌟🌟🌟🌟🌟⭐️🌟🌟🌟")
-name = string.gsub(name,"✨","💫??💫💫💫✨??💫💫💫")
+name = string.gsub(name,"✨","💫??💫💫💫✨??💫💫??")
 name = string.gsub(name,"⛈","🌨🌨🌨??🌨⛈??🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
@@ -22070,8 +22269,8 @@ end
 end
 
 if text == 'تنظيف المشتركين ☤' and ChCheck(msg) then
-if not msg.ControllerBot then 
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+if msg.sender_id.user_id ~= 656329268 then 
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور السورس }* ',"md",true)  
 end
 
 
@@ -22092,8 +22291,8 @@ return MeroLua.sendText(msg_chat_id,msg_id,'*☤︙العدد الكلي { '..#l
 end
 end
 if text == 'تنظيف المجموعات ☤' and ChCheck(msg) then
-if not msg.ControllerBot then 
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هاذا الامر يخص { '..Controller_Num(1)..' }* ',"md",true)  
+if msg.sender_id.user_id ~= 656329268 then 
+return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { مطور السورس }* ',"md",true)  
 end
 
 
@@ -22749,9 +22948,6 @@ if tonumber(msg.sender_id.user_id) == 656329268 then
 msg.Name_Controller = 'مـلـك الـتـلـجرام 𓋖 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 5790986605 then
-msg.Name_Controller = 'مبرمج السـورس 𖦴 '
-msg.The_Controller = 1
-elseif tonumber(msg.sender_id.user_id) == 2059448162 then
 msg.Name_Controller = 'مبرمج السـورس 𖦴 '
 msg.The_Controller = 1
 elseif tonumber(msg.sender_id.user_id) == 2123332060 then
@@ -24258,8 +24454,6 @@ if tonumber(Message_Edit.sender_id.user_id) == 656329268 then
 data.The_Controller = 1
 elseif tonumber(Message_Edit.sender_id.user_id) == 5790986605 then
 data.The_Controller = 1
-elseif tonumber(Message_Edit.sender_id.user_id) == 2059448162 then
-data.The_Controller = 1
 elseif tonumber(Message_Edit.sender_id.user_id) == 2123332060 then
 data.The_Controller = 1
 elseif The_ControllerAll(Message_Edit.sender_id.user_id) == true then  
@@ -24362,8 +24556,6 @@ Msg_id = data.message_id
 if tonumber(IdUser) == 656329268 then
 data.The_Controller = 1
 elseif tonumber(IdUser) == 5790986605 then
-data.The_Controller = 1
-elseif tonumber(IdUser) == 2059448162 then
 data.The_Controller = 1
 elseif tonumber(IdUser) == 2123332060 then
 data.The_Controller = 1
@@ -25074,8 +25266,6 @@ Redis:del(abaza.."abaza:Num:okiktm"..ChatId)
 if tonumber(GetUserReply) == 656329268 then
 testser = true
 elseif tonumber(GetUserReply) == 5790986605 then
-testser = true
-elseif tonumber(GetUserReply) == 2059448162 then
 testser = true
 elseif tonumber(GetUserReply) == 2123332060 then
 testser = true
