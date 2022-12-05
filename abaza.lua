@@ -20129,6 +20129,7 @@ MeroLua.sendText(msg_chat_id,msg_id,[[
 return false
 end
 end
+end
 if text and text:match("^(.*)$") then
 if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id.."") == "true2" then
 Redis:del(abaza.."abaza:Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
