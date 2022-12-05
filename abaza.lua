@@ -20151,6 +20151,7 @@ return MeroLua.sendText(msg_chat_id,msg_id,"• تم حذف الرد من الر
 return false
 end
 end
+end
 if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "true1" and tonumber(senderr) ~= tonumber(abaza) then
 Redis:del(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id)
 Redis:set(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id,"set_inline")
