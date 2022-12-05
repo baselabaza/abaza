@@ -22519,7 +22519,7 @@ if data and data.Merotele and data.Merotele == "updateNewInlineCallbackQuery" th
 local Text = MeroLua.base64_decode(data.payload.data)
 if Text and Text:match('/Hmsa1@(%d+)@(%d+)/(%d+)') then
 local ramsesadd = {string.match(Text,"^/Hmsa1@(%d+)@(%d+)/(%d+)$")}
-if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) == tonumber(data.sender_user_id) == tonumber(656329268) then
+if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) == tonumber(data.sender_user_id) then
 local inget = Redis:get(abaza..'hmsabots'..ramsesadd[3]..data.sender_user_id)
 https.request("https://api.telegram.org/bot"..Token..'/answerCallbackQuery?callback_query_id='..data.id..'&text='..URL.escape(inget)..'&show_alert=true')
 else
