@@ -6612,8 +6612,6 @@ local UserInfo = MeroLua.getUser(user1)
 local listTow = "☤︙الف مبروك تم زواجك من : ["..UserInfo.first_name.."](tg://user?id="..UserInfo.id..") \n"
 return MeroLua.sendText(msg.chat_id,msg.id,listTow,"md",true)  
 end
-
-
 if text and text:match('^انذار @(%S+)$') and ChCheck(msg) then
 local UserName = text:match('^انذار @(%S+)$')
 if Redis:get(abaza.."lock_inthare"..msg.chat_id) then
@@ -15959,12 +15957,6 @@ end
 end
 end
 end
-
-
-
-
-
-
 if text == 'تاك' and (Redis:get(abaza..'tagallgroup'..msg.chat_id) == "open") then
 if not msg.Addictive then
 return MeroLua.sendText(msg_chat_id,msg_id,'\n*☤︙هذا الامر يخص { '..Controller_Num(7)..' }* ',"md",true)  
@@ -19942,6 +19934,7 @@ end
 Redis:set(abaza..'abaza:GetTexting:Devabaza'..msg_chat_id..':'..msg.sender_id.user_id,true)
 return MeroLua.sendText(msg_chat_id,msg_id,[[
 ☤︙ارسل الكليشه الان ، 
+☤︙يمكنك اختيار كلايش من هنا @klaishsudo
 ☤︙يمكنك وضع : 
 ☤︙`#namemsudo` اسم المطور الاساسي مع الماركداون ،
 ☤︙`#namesudo` اسم المطور الاساسي بدون ماركداون ، 
@@ -19959,9 +19952,6 @@ end
 Redis:del(abaza..'abaza:Texting:Devabaza')
 return MeroLua.sendText(msg_chat_id,msg_id,'☤︙ تم مسح كليشه المطور')
 end
-
-
-
 
 
 
@@ -21482,7 +21472,7 @@ name = string.gsub(name,"🐇","🕊🕊🕊🕊🕊🐇🕊🕊🕊🕊")
 name = string.gsub(name,"🌑","🌚🌚🌚🌚🌚🌑🌚🌚🌚")
 name = string.gsub(name,"🌚","🌑🌑🌑🌑🌑??🌑🌑🌑")
 name = string.gsub(name,"⭐️","🌟🌟🌟🌟🌟🌟🌟🌟⭐️🌟🌟🌟")
-name = string.gsub(name,"✨","💫??💫💫💫✨??💫💫??")
+name = string.gsub(name,"✨","💫??💫💫💫✨??💫💫💫")
 name = string.gsub(name,"⛈","🌨🌨🌨??🌨⛈??🌨🌨🌨")
 name = string.gsub(name,"🌥","⛅️⛅️⛅️⛅️⛅️⛅️🌥⛅️⛅️⛅️⛅️")
 name = string.gsub(name,"⛄️","☃☃☃☃☃☃⛄️☃☃☃☃")
@@ -22529,7 +22519,7 @@ if data and data.Merotele and data.Merotele == "updateNewInlineCallbackQuery" th
 local Text = MeroLua.base64_decode(data.payload.data)
 if Text and Text:match('/Hmsa1@(%d+)@(%d+)/(%d+)') then
 local ramsesadd = {string.match(Text,"^/Hmsa1@(%d+)@(%d+)/(%d+)$")}
-if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) ==or tonumber(656329268) == tonumber(data.sender_user_id) then
+if tonumber(data.sender_user_id) == tonumber(ramsesadd[1]) or tonumber(ramsesadd[2]) or tonumber(656329268) == tonumber(data.sender_user_id) then
 local inget = Redis:get(abaza..'hmsabots'..ramsesadd[3]..data.sender_user_id)
 https.request("https://api.telegram.org/bot"..Token..'/answerCallbackQuery?callback_query_id='..data.id..'&text='..URL.escape(inget)..'&show_alert=true')
 else
