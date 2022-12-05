@@ -15962,7 +15962,7 @@ end
 
 
 if Redis:get(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id) == "mp3" then
-Redis:del(abaza.."youtube"..msg.sender.user_id..msg_chat_id)
+Redis:del(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id)
 local rep = msg.id/2097152/0.5
 local m = json:decode(https.request("https://api.telegram.org/bot"..Token.."/sendAnimation?chat_id="..msg_chat_id.."&animation=https://t.me/photojack14366/65&reply_to_message_id="..rep)).result.message_id
 local se = http.request("https://api-jack.ml/api18.php?search="..URL.escape(text))
@@ -16001,7 +16001,7 @@ Redis:del(abaza.."abaza:youtube"..msg.sender.user_id..msg_chat_id)
 sleep(2)
 os.remove(""..title..".mp4")
 end
-if text == "يوتيوب" or text == 'يوت' or text == 'YouTube' or text == 'The Youtube' or text == 'Youtube' or text == 'youtube' or text == 'You Tube' or text == 'YT' or text == 'Yt' then
+if text == "يوتيوب" then
 local reply_markup = Merotele.replyMarkup{
 type = 'inline',
 data = {
@@ -16018,6 +16018,23 @@ return send(msg_chat_id,msg_id, [[*
 *]],"md",false, false, false, false, reply_markup)
 end
 
+
+if text:match("^بحث (.*)$") then
+local search = text:match("^بحث (.*)$")
+local json = json:decode(http.request("https://api-jack.ml/api18.php?search="..URL.escape(search)..""))
+local datar = {data = {{text = "٠ ALTHEEB ٠" , url = 'https://t.me/e_b50'}}}
+for i = 1,5 do
+title = json.results[i].title
+link = json.results[i].url
+datar[i] = {{text = title , data =msg.sender.user_id.."dl/"..link}}
+end
+local reply_markup = Merotele.replyMarkup{
+type = 'inline',
+data = datar
+}
+Merotele.sendText(msg.chat_id,msg.id,'※ نتائج بحثك ل *'..search..'*',"md",false, false, false, false, reply_markup)
+end
+end
 
 
 
