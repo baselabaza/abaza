@@ -20097,7 +20097,7 @@ if text and text:match("^(.*)$") and tonumber(senderr) ~= tonumber(abaza) then
 if Redis:get(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id) == "true" then
 Redis:set(abaza.."abaza:Set:Manager:rd:inline"..senderr..":"..msg_chat_id,"true1")
 Redis:set(abaza.."abaza:Text:Manager:inline"..senderr..":"..msg_chat_id, text)
-Redis:del(abaza..abaza:"Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
+Redis:del(abaza.."abaza:Add:Rd:Manager:Gif:inline"..text..msg_chat_id) 
 Redis:del(abaza.."abaza:Add:Rd:Manager:Vico:inline"..text..msg_chat_id) 
 Redis:del(abaza.."abaza:Add:Rd:Manager:Stekrs:inline"..text..msg_chat_id) 
 Redis:del(abaza.."abaza:Add:Rd:Manager:Text:inline"..text..msg_chat_id) 
